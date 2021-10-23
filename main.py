@@ -1,5 +1,5 @@
 # todo:
-    # add the covid update part after making the websccraping module
+    # add the covid update part after making the webscraping module
 
 # good refrence
     # https://praw.readthedocs.io/en/stable/code_overview/models/comment.html
