@@ -1,5 +1,6 @@
 # todo:
     # add the covid update part after making the webscraping module
+    # add requirements.txt
 
 # good refrence
     # https://praw.readthedocs.io/en/stable/code_overview/models/comment.html
