@@ -1,11 +1,6 @@
 # todo:
-    # add the covid update part after making the webscraping module
-    # add requirements.txt
-
-# good refrence
-    # https://praw.readthedocs.io/en/stable/code_overview/models/comment.html
-    # https://praw.readthedocs.io/en/stable/code_overview/models/submission.html 
-    # https://praw.readthedocs.io/en/stable/tutorials/reply_bot.html
+    # turn cupdater into a proper module that can be installed by anyone.
+    # find out a way to make the 'bot request: BAD' reply look good.
 
 #region imports
 import cupdater
@@ -145,7 +140,7 @@ def get_data(location):
         'active cases = {active_cases}\n\n'
         'critical cases = {critical_cases}\n\n'
         'cases per million = {cases_per_mil}\n\n'
-        'deaths per million = {deaths_per_mil}'
+        'deaths per million = {deaths_per_mil}\n\n'
         'total tests = {total_tests}\n\n'
         'tests per million = {tests_per_mil}\n\n'
         'continent = {continent}\n\n'
@@ -174,20 +169,28 @@ def get_data(location):
 def run_bot(reddit):
 
     for item in reddit.inbox.stream():
-
-        if item.body == 'u/'+login.username:
+        req = [i for i in item.body.split(' ')]
+        valid_locations = cupdater.Location.get_list('all')
+        username = 'u/'+login.username
+        if req[0] == username and req[1] in valid_locations:
             print('bot request: OK')
-            
-            r = get_data('India')
-            # print(str(r))
+
+            r = get_data(req[1])
 
             item.reply(str(r))
             print('reply: OK')
 
-            # item.mark_read()
-            # print('mark as read: OK')
+            item.mark_read()
+            print('mark as read: OK')
         else:
             print('bot request: BAD')
+
+            # find out a way to make this reply look good.
+            item.reply(str(sorted(valid_locations)))
+            print('reply: OK')
+
+            item.mark_read()
+            print('mark as read: OK')
 
         # uncomment 'break' if you want the bot to only run once
         # break
