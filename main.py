@@ -1,6 +1,7 @@
 # todo:
     # turn cupdater into a proper module that can be installed by anyone.
     # find out a way to make the 'bot request: BAD' reply look good.
+    # add docs
 
 #region imports
 import cupdater
