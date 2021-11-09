@@ -1,4 +1,5 @@
 # todo:
+    # clean up code
     # turn this into a proper module
     # publish at pypi
     # instead of scraping every time, get the whole thing at the beginning and then scrape that?? idk if that better or worse 
@@ -154,7 +155,7 @@ class Location:
 
 # endregion
 
-# region function definitions
+# region function definitions       #????
 
 # region main function 
 
