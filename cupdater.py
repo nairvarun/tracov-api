@@ -1,9 +1,8 @@
 # todo:
     # turn this into a proper module
     # publish at pypi
-    # instead of scraping every time, get the whole thing at the beging and then scrape that?? idk if that better or worse 
+    # instead of scraping every time, get the whole thing at the beginning and then scrape that?? idk if that better or worse 
     # add comments and documentation
-    # add license
 
 # region imports
 import requests
