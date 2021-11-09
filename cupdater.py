@@ -7,7 +7,7 @@
 # region imports
 import requests
 from bs4 import BeautifulSoup
-import cupdater
+import cupdater # why tf am i importing this??
 #endregion
 
 # region class
