@@ -1,7 +1,7 @@
 __pycache__
 .dump
 .vscode
-venv
+.venv
 
 login.py
 tst.ipynb

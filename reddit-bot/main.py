@@ -13,7 +13,7 @@ import login
 
 # gets data from cupdater and prepares the reply
 def get_data(location):
-    
+
     c19 = cupdater.Location(location)
 
     if location == 'World':
@@ -43,19 +43,19 @@ def get_data(location):
         'deaths per million = {deaths_per_mil}'
         ).format(
             loc = location,
-            total_cases = total_cases, 
-            new_cases = new_cases, 
-            total_deaths = total_deaths, 
-            new_deaths = new_deaths, 
-            total_recovered = total_recovered, 
-            new_recovered = new_recovered, 
-            active_cases = active_cases, 
-            critical_cases = critical_cases, 
-            cases_per_mil = cases_per_mil, 
+            total_cases = total_cases,
+            new_cases = new_cases,
+            total_deaths = total_deaths,
+            new_deaths = new_deaths,
+            total_recovered = total_recovered,
+            new_recovered = new_recovered,
+            active_cases = active_cases,
+            critical_cases = critical_cases,
+            cases_per_mil = cases_per_mil,
             deaths_per_mil = deaths_per_mil
             )
 
-    elif location in ['North America', 
+    elif location in ['North America',
     'Asia', 'South America', 'Europe', 'Africa', 'Australia/Oceania']:
         if location == 'South America':
             total_cases = c19.total_cases
@@ -63,7 +63,7 @@ def get_data(location):
             total_recovered = c19.total_recovered
             active_cases = c19.active_cases
             critical_cases = c19.critical_cases
-        
+
             # use '/n' twice for it to be properly displayed on reddit.
             reply = (
             '{loc}: \n\n'
@@ -74,11 +74,11 @@ def get_data(location):
             'critical cases = {critical_cases}'
             ).format(
                 loc = location,
-                total_cases = total_cases, 
-                total_deaths = total_deaths, 
-                total_recovered = total_recovered, 
-                active_cases = active_cases, 
-                critical_cases = critical_cases, 
+                total_cases = total_cases,
+                total_deaths = total_deaths,
+                total_recovered = total_recovered,
+                active_cases = active_cases,
+                critical_cases = critical_cases,
                 )
 
         else:
@@ -104,14 +104,14 @@ def get_data(location):
             'critical cases = {critical_cases}'
             ).format(
                 loc = location,
-                total_cases = total_cases, 
-                new_cases = new_cases, 
-                total_deaths = total_deaths, 
-                new_deaths = new_deaths, 
-                total_recovered = total_recovered, 
-                new_recovered = new_recovered, 
-                active_cases = active_cases, 
-                critical_cases = critical_cases, 
+                total_cases = total_cases,
+                new_cases = new_cases,
+                total_deaths = total_deaths,
+                new_deaths = new_deaths,
+                total_recovered = total_recovered,
+                new_recovered = new_recovered,
+                active_cases = active_cases,
+                critical_cases = critical_cases,
                 )
 
     else:
@@ -148,25 +148,25 @@ def get_data(location):
         'population = {population}'
         ).format(
             loc = location,
-            total_cases = total_cases, 
-            new_cases = new_cases, 
-            total_deaths = total_deaths, 
-            new_deaths = new_deaths, 
-            total_recovered = total_recovered, 
-            new_recovered = new_recovered, 
-            active_cases = active_cases, 
-            critical_cases = critical_cases, 
-            cases_per_mil = cases_per_mil, 
+            total_cases = total_cases,
+            new_cases = new_cases,
+            total_deaths = total_deaths,
+            new_deaths = new_deaths,
+            total_recovered = total_recovered,
+            new_recovered = new_recovered,
+            active_cases = active_cases,
+            critical_cases = critical_cases,
+            cases_per_mil = cases_per_mil,
             deaths_per_mil = deaths_per_mil,
             total_tests = total_tests,
             tests_per_mil = tests_per_mil,
             continent = continent,
             population = population
             )
-    
+
     return reply
 
-# starts the bot 
+# starts the bot
 def run_bot(reddit):
 
     for item in reddit.inbox.stream():
@@ -203,7 +203,7 @@ def main():
                         client_secret = login.client_secret,
                         username = login.username,
                         password = login.password,
-                        user_agent = login.user_agent) 
+                        user_agent = login.user_agent)
 
     if reddit.user.me() == login.username:
         print('authentication: OK')
