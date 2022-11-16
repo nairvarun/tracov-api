@@ -1,8 +1,12 @@
+# can be extended to cover all of worldometers but that's too much work :/
+
 import requests
 from bs4 import BeautifulSoup
+from cachetools import cached, TTLCache
 
 
-def main():
+@cached(cache = TTLCache(maxsize = 32, ttl = 3600))
+def get_cov_data():
     worldometer = "https://www.worldometers.info/coronavirus/"
     source = requests.get(worldometer)
     page = BeautifulSoup(source.text, "lxml")
@@ -140,5 +144,8 @@ def main():
     return data
 
 
+def main():
+    print(get_cov_data())
+
 if __name__ == "__main__":
-    main()
+    print(main())
